@@ -86,8 +86,9 @@ or
   {\tt MQ} & i & Mapping quality of the mate/next segment \\
   {\tt NH} & i & Number of reported alignments that contains the query in the current record \\
   {\tt NM} & i & Edit distance to the reference \\
-  {\tt OC} & Z & Original CIGAR \\
-  {\tt OP} & i & Original mapping position \\
+  {\tt OA} & Z & Original Alignment \\
+  {\tt OC} & Z & (Deprecated in favor of {\tt OA}.) Original CIGAR \\
+  {\tt OP} & i & (Deprecated in favor of {\tt OA}.) Original mapping position \\
   {\tt OQ} & Z & Original base quality \\
   {\tt OX} & Z & Original unique molecular barcode bases \\
   {\tt PG} & Z & Program \\
@@ -286,13 +287,17 @@ Deprecated alternative to {\tt BC} tag originally used at Sanger.
 \end{description}
 
 \subsection{Original data}
-
 \begin{description}
+\item[OA:Z:\tagregex{({\tt}\emph{rname}{\tt,}\emph{pos}{\tt,}\emph{strand}{\tt,}\emph{CIGAR}{\tt,}\emph{mapQ}{\tt,}\emph{NM}{\tt;})+}]
+Original alignment of template prior to realignment/unalignment by subsequent tool. 
+Unknown values may be dropped, but commas should remain for parsing. 
+In the presence of an {\tt OA} tag, a subsequent tool should append the current information after the semicolon, not replace its content.
+
 \item[OC:Z:\tagvalue{cigar}]
-Original CIGAR, usually before realignment.
+Deprecated, use {\tt OA instead}. Original CIGAR, usually before realignment.
 
 \item[OP:i:\tagvalue{pos}]
-Original mapping position, usually before realignment.
+Deprecated, use {\tt OA instead}. Original mapping position, usually before realignment.
 
 \item[OQ:Z:\tagvalue{qualities}]
 Original base quality, usually before recalibration.
