@@ -192,6 +192,12 @@ meanings can be avoided.}
     \emph{Valid values}: {\tt none} (default), {\tt query} (alignments are
     grouped by {\sf QNAME}), and {\tt reference} (alignments are grouped by
     {\sf RNAME}/{\sf POS}).\\\cline{1-3}
+  & {\tt SS} & Sub-Sorting order of alignments. Valid values are of the form
+    {\tt <sort-order>:<sub-sort>}, where {\tt <sort-order>} is the same value stored in the
+    {\tt SO} attribute and {\tt <sub-sort>} is an implementation-dependent string further 
+    describing the sort order.  E.g. if an algorithm relies on a {\tt coordinate} sort that,
+    at each coordinate, is further sorted by queryname the header could contain 
+    {\tt @HD SO:coordinate SS:coordinate:coordinate-then-queryname}.\\\cline{1-3}
   \multicolumn{2}{|l}{\tt @SQ} & Reference sequence dictionary. The order of {\tt @SQ} lines defines the alignment sorting order.\\\cline{2-3}
   & {\tt SN}* & Reference sequence name. Each {\tt @SQ} line must have a unique {\tt SN} tag. The value of this
   field is used in the
