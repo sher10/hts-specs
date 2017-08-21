@@ -288,7 +288,7 @@ Deprecated alternative to {\tt BC} tag originally used at Sanger.
 
 \subsection{Original data}
 \begin{description}
-\item[OA:Z:\tagregex{({\tt}\emph{rname}{\tt,}\emph{pos}{\tt,}\emph{strand}{\tt,}\emph{CIGAR}{\tt,}\emph{mapQ}{\tt,}\emph{NM}{\tt;})+}]
+\item[OA:Z:\tagregex{{\tt (}\emph{rname}{\tt ,}\emph{pos}{\tt ,}\emph{strand}{\tt ,}\emph{CIGAR}{\tt ,}\emph{mapQ}{\tt ,}\emph{NM}{\tt ;)}+}]
 Original alignment of template prior to realignment/unalignment by subsequent tool. 
 Unknown values may be dropped, but commas should remain for parsing. 
 In the presence of an {\tt OA} tag, a subsequent tool should append the current information after the semicolon, not replace its content.
