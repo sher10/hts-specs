@@ -87,8 +87,10 @@ or
   {\tt NH} & i & Number of reported alignments that contains the query in the current record \\
   {\tt NM} & i & Edit distance to the reference \\
   {\tt OA} & Z & Original Alignment \\
-  {\tt OC} & Z & (Deprecated in favor of {\tt OA}.) Original CIGAR \\
-  {\tt OP} & i & (Deprecated in favor of {\tt OA}.) Original mapping position \\
+  {\tt OC} & Z & Original CIGAR 
+  (deprecated; use {\tt OA} instead) \\
+  {\tt OP} & i & Original mapping position 
+  (deprecated; use {\tt OA} instead) \\
   {\tt OQ} & Z & Original base quality \\
   {\tt OX} & Z & Original unique molecular barcode bases \\
   {\tt PG} & Z & Program \\
@@ -287,11 +289,13 @@ Deprecated alternative to {\tt BC} tag originally used at Sanger.
 \end{description}
 
 \subsection{Original data}
+
 \begin{description}
 \item[OA:Z:\tagregex{{\tt (}\emph{rname}{\tt ,}\emph{pos}{\tt ,}\emph{strand}{\tt ,}\emph{CIGAR}{\tt ,}\emph{mapQ}{\tt ,}\emph{NM}{\tt ;)}+}]
-Original alignment of template prior to realignment/unalignment by subsequent tool. 
-Unknown values may be dropped, but commas should remain for parsing. 
-In the presence of an {\tt OA} tag, a subsequent tool should append the current information after the semicolon, not replace its content.
+Original alignment of segment prior to realignment or unalignment by subsequent tool. 
+If any of the fields' values (say {\tt NM}, or {\tt MQ} etc.) are unknown they may be omitted but, comma delimiters must be retained for parsing. 
+In the presence of an existing {\tt OA} tag, a subsequent tool should append another set of original alignment information after the semicolon, 
+adding to---rather than replacing---the existing OA information.
 
 \item[OC:Z:\tagvalue{cigar}]
 Deprecated, use {\tt OA instead}. Original CIGAR, usually before realignment.
